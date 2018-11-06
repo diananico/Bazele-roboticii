@@ -1,10 +1,9 @@
-F:\SCOALA\Facultate\An_4_Sem_1\BR\GitPROIECT\Proiect\ExpandareObstacole\ExpandareObstacole\bin\Debug\ExpandareObstacole.exe.config
-F:\SCOALA\Facultate\An_4_Sem_1\BR\GitPROIECT\Proiect\ExpandareObstacole\ExpandareObstacole\bin\Debug\ExpandareObstacole.exe
-F:\SCOALA\Facultate\An_4_Sem_1\BR\GitPROIECT\Proiect\ExpandareObstacole\ExpandareObstacole\bin\Debug\ExpandareObstacole.pdb
-F:\SCOALA\Facultate\An_4_Sem_1\BR\GitPROIECT\Proiect\ExpandareObstacole\ExpandareObstacole\obj\Debug\ExpandareObstacole.csprojAssemblyReference.cache
 F:\SCOALA\Facultate\An_4_Sem_1\BR\GitPROIECT\Proiect\ExpandareObstacole\ExpandareObstacole\obj\Debug\ExpandareObstacole.Form1.resources
 F:\SCOALA\Facultate\An_4_Sem_1\BR\GitPROIECT\Proiect\ExpandareObstacole\ExpandareObstacole\obj\Debug\ExpandareObstacole.Properties.Resources.resources
 F:\SCOALA\Facultate\An_4_Sem_1\BR\GitPROIECT\Proiect\ExpandareObstacole\ExpandareObstacole\obj\Debug\ExpandareObstacole.csproj.GenerateResource.cache
 F:\SCOALA\Facultate\An_4_Sem_1\BR\GitPROIECT\Proiect\ExpandareObstacole\ExpandareObstacole\obj\Debug\ExpandareObstacole.csproj.CoreCompileInputs.cache
+F:\SCOALA\Facultate\An_4_Sem_1\BR\GitPROIECT\Proiect\ExpandareObstacole\ExpandareObstacole\bin\Debug\ExpandareObstacole.exe.config
+F:\SCOALA\Facultate\An_4_Sem_1\BR\GitPROIECT\Proiect\ExpandareObstacole\ExpandareObstacole\bin\Debug\ExpandareObstacole.exe
+F:\SCOALA\Facultate\An_4_Sem_1\BR\GitPROIECT\Proiect\ExpandareObstacole\ExpandareObstacole\bin\Debug\ExpandareObstacole.pdb
 F:\SCOALA\Facultate\An_4_Sem_1\BR\GitPROIECT\Proiect\ExpandareObstacole\ExpandareObstacole\obj\Debug\ExpandareObstacole.exe
 F:\SCOALA\Facultate\An_4_Sem_1\BR\GitPROIECT\Proiect\ExpandareObstacole\ExpandareObstacole\obj\Debug\ExpandareObstacole.pdb

@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtnrpct = new System.Windows.Forms.TextBox();
             this.combouniform = new System.Windows.Forms.ComboBox();
             this.comboforma = new System.Windows.Forms.ComboBox();
             this.btnexpand = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtdist = new System.Windows.Forms.TextBox();
             this.txtdist1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtdist2 = new System.Windows.Forms.TextBox();
@@ -57,16 +56,11 @@
             this.txtdist6 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.combocapete = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lblCoord = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(296, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(514, 426);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -94,6 +88,7 @@
             this.combouniform.Name = "combouniform";
             this.combouniform.Size = new System.Drawing.Size(121, 21);
             this.combouniform.TabIndex = 3;
+            this.combouniform.SelectedIndexChanged += new System.EventHandler(this.combouniform_SelectedIndexChanged);
             // 
             // comboforma
             // 
@@ -114,6 +109,7 @@
             this.btnexpand.TabIndex = 5;
             this.btnexpand.Text = "Expandeaza";
             this.btnexpand.UseVisualStyleBackColor = true;
+            this.btnexpand.Click += new System.EventHandler(this.btnexpand_Click);
             // 
             // label2
             // 
@@ -124,12 +120,12 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Distanta expandare:";
             // 
-            // textBox1
+            // txtdist
             // 
-            this.textBox1.Location = new System.Drawing.Point(153, 53);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(99, 20);
-            this.textBox1.TabIndex = 7;
+            this.txtdist.Location = new System.Drawing.Point(153, 53);
+            this.txtdist.Name = "txtdist";
+            this.txtdist.Size = new System.Drawing.Size(99, 20);
+            this.txtdist.TabIndex = 7;
             // 
             // txtdist1
             // 
@@ -302,11 +298,50 @@
             this.combocapete.Size = new System.Drawing.Size(103, 21);
             this.combocapete.TabIndex = 28;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(822, 138);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
+            this.flowLayoutPanel1.TabIndex = 29;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(317, 15);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(506, 423);
+            this.panel1.TabIndex = 30;
+            this.panel1.Click += new System.EventHandler(this.panel1_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(163, 347);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(65, 13);
+            this.label13.TabIndex = 31;
+            this.label13.Text = "Coordonate:";
+            // 
+            // lblCoord
+            // 
+            this.lblCoord.AutoSize = true;
+            this.lblCoord.Location = new System.Drawing.Point(163, 369);
+            this.lblCoord.Name = "lblCoord";
+            this.lblCoord.Size = new System.Drawing.Size(13, 13);
+            this.lblCoord.TabIndex = 32;
+            this.lblCoord.Text = "  ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(835, 450);
+            this.Controls.Add(this.lblCoord);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.combocapete);
             this.Controls.Add(this.txtdist10);
             this.Controls.Add(this.label8);
@@ -328,32 +363,29 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtdist1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtdist);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnexpand);
             this.Controls.Add(this.comboforma);
             this.Controls.Add(this.combouniform);
             this.Controls.Add(this.txtnrpct);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtnrpct;
         private System.Windows.Forms.ComboBox combouniform;
         private System.Windows.Forms.ComboBox comboforma;
         private System.Windows.Forms.Button btnexpand;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtdist;
         private System.Windows.Forms.TextBox txtdist1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtdist2;
@@ -375,6 +407,10 @@
         private System.Windows.Forms.TextBox txtdist6;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox combocapete;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblCoord;
     }
 }
 
