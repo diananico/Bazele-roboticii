@@ -60,6 +60,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.lblCoord = new System.Windows.Forms.Label();
+            this.txtraza = new System.Windows.Forms.TextBox();
+            this.lblraza = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -307,7 +309,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Location = new System.Drawing.Point(317, 15);
             this.panel1.Name = "panel1";
@@ -333,11 +335,33 @@
             this.lblCoord.TabIndex = 32;
             this.lblCoord.Text = "  ";
             // 
+            // txtraza
+            // 
+            this.txtraza.Location = new System.Drawing.Point(12, 404);
+            this.txtraza.Name = "txtraza";
+            this.txtraza.Size = new System.Drawing.Size(99, 20);
+            this.txtraza.TabIndex = 34;
+            this.txtraza.Visible = false;
+            // 
+            // lblraza
+            // 
+            this.lblraza.AutoSize = true;
+            this.lblraza.Font = new System.Drawing.Font("Copperplate Gothic Bold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblraza.ForeColor = System.Drawing.Color.Brown;
+            this.lblraza.Location = new System.Drawing.Point(13, 387);
+            this.lblraza.Name = "lblraza";
+            this.lblraza.Size = new System.Drawing.Size(91, 14);
+            this.lblraza.TabIndex = 33;
+            this.lblraza.Text = "Raza Cerc:";
+            this.lblraza.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(835, 450);
+            this.Controls.Add(this.txtraza);
+            this.Controls.Add(this.lblraza);
             this.Controls.Add(this.lblCoord);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.panel1);
@@ -411,6 +435,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lblCoord;
+        private System.Windows.Forms.TextBox txtraza;
+        private System.Windows.Forms.Label lblraza;
     }
 }
 

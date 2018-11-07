@@ -17,6 +17,8 @@ namespace ExpandareObstacole
 
         IList<Point> listp = new List<Point>();
         int listindex = 0;
+        int panelPoints = 0;
+        int panelValidPoints = 0;
 
         public Form1()
         {
@@ -29,10 +31,6 @@ namespace ExpandareObstacole
             comboforma.SelectedIndex = 0;
             combouniform.SelectedIndex = 0;
             CheckComboVal();
-
-
-
-
         }
 
         private void CheckComboVal()
@@ -103,45 +101,80 @@ namespace ExpandareObstacole
         }
 
         private void btnexpand_Click(object sender, EventArgs e)
-        {           
+        {
             Graphics g = panel1.CreateGraphics();
             g.SmoothingMode = SmoothingMode.HighQuality;
-            
-
-            IList<Point> actual = ConvexHull.MakeHull(listp);
-            IList<Point> expected = ConvexHullTest.MakeHullNaive(listp);
-
-            ConvexHullTest.AssertEquals(expected, actual);
-            Pen p = new Pen(Color.DarkRed, 10f);
-            int nr = expected.Count;
-
-            txtnrpct.Text = nr.ToString();
-
-            Font font = new Font("Comic", 7);
-            Brush br = new SolidBrush(System.Drawing.Color.DarkRed);
-            
-            for (int index = 0; index < nr; index++)
-            {
-                g.DrawString("X", font, br, (float)expected[index].x, (float)expected[index].y);
-            }
-
-            float xoffset = -5f;
-            float yoffset = -5.5f;
-
-            System.Threading.Thread.Sleep(1000);
-
             Pen blackpen = new Pen(Color.Black, 3);
+            Pen p = new Pen(Color.DarkRed, 10f);
+            Font font = new Font("Comic", 7);
+            String raza = (txtraza.Text == "") ? "0" : txtraza.Text;
+            float radius = float.Parse(raza);
+            float xoffset = 4.5f;
+            float yoffset = 6f;
 
-            for (int index = 0; index < nr - 1; index++)
-            {
-                g.DrawLine(blackpen, (float)expected[index].x - xoffset, (float)expected[index].y - yoffset, (float)expected[index + 1].x - xoffset, (float)expected[index + 1].y - yoffset);               
+
+            if (panelPoints == 1)
+            {//it's a circle
+                if (radius == 0)
+                {
+                    MessageBox.Show("Ati introdus un punct => cerc. \n Introduceti raza.");
+                    lblraza.Visible = true;
+                    txtraza.Visible = true;
+                }
+                else
+                {
+                    Compute.DrawCircle(g, blackpen, (float)listp[0].x + xoffset, (float)listp[0].y + yoffset, radius);                  
+                    lblraza.Visible = false;
+                    txtraza.Visible = false;
+                }
             }
-            g.DrawLine(blackpen, (float)expected[nr - 1].x - xoffset, (float)expected[nr - 1].y - yoffset, (float)expected[0].x - xoffset, (float)expected[0].y - yoffset);
+            else if (panelPoints > 1)
+            {
+                IList<Point> actual = ConvexHull.MakeHull(listp);
+                IList<Point> expected = ConvexHullTest.MakeHullNaive(listp);
+
+                ConvexHullTest.AssertEquals(expected, actual);
+
+                int nr = expected.Count;
+
+                if (nr > 2)
+                {
+                    txtnrpct.Text = nr.ToString();
                     
+                    Brush br = new SolidBrush(System.Drawing.Color.DarkRed);
 
-            System.Threading.Thread.Sleep(1000);
+                    for (int index = 0; index < nr; index++)
+                    {
+                        g.DrawString("X", font, br, (float)expected[index].x, (float)expected[index].y);
+                    }
+                    System.Threading.Thread.Sleep(7000);
 
-            g.Dispose();            
+                    for (int index = 0; index < nr - 1; index++)
+                    {
+                        g.DrawLine(blackpen, (float)expected[index].x + xoffset, (float)expected[index].y + yoffset, (float)expected[index + 1].x + xoffset, (float)expected[index + 1].y + yoffset);
+                    }
+                    g.DrawLine(blackpen, (float)expected[nr - 1].x + xoffset, (float)expected[nr - 1].y + yoffset, (float)expected[0].x + xoffset, (float)expected[0].y + yoffset);
+
+                }
+                else
+                {
+                    Brush eraseBrush = new SolidBrush(System.Drawing.Color.WhiteSmoke);
+                    MessageBox.Show("Numarul de puncte este: " + nr.ToString() + "\nSunt necesare minim 3 puncte pentru a genera o figura.");
+
+                    for (int index = 0; index < nr; index++)
+                    {
+                        g.DrawString("X", font, eraseBrush, (float)expected[index].x, (float)expected[index].y);
+                    }
+                }
+               
+            }
+            else
+            {
+                MessageBox.Show("Nu ati dat niciun punct.");
+            }
+            listp.Clear();
+            panelPoints = 0;
+            g.Dispose();
         }
 
         private void panel1_Click(object sender, EventArgs e)
@@ -158,6 +191,8 @@ namespace ExpandareObstacole
             listp.Add(new Point(point.X, point.Y));
 
             lblCoord.Text = point.ToString();
+
+            panelPoints++;
         }
     }
 }
