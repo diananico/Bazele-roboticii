@@ -62,6 +62,9 @@
             this.lblCoord = new System.Windows.Forms.Label();
             this.txtraza = new System.Windows.Forms.TextBox();
             this.lblraza = new System.Windows.Forms.Label();
+            this.BtnDeseneazaCerc = new System.Windows.Forms.Button();
+            this.BtnClearPanel = new System.Windows.Forms.Button();
+            this.BtnClearPanelData = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -316,6 +319,7 @@
             this.panel1.Size = new System.Drawing.Size(506, 423);
             this.panel1.TabIndex = 30;
             this.panel1.Click += new System.EventHandler(this.panel1_Click);
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label13
             // 
@@ -341,7 +345,6 @@
             this.txtraza.Name = "txtraza";
             this.txtraza.Size = new System.Drawing.Size(99, 20);
             this.txtraza.TabIndex = 34;
-            this.txtraza.Visible = false;
             // 
             // lblraza
             // 
@@ -353,13 +356,45 @@
             this.lblraza.Size = new System.Drawing.Size(91, 14);
             this.lblraza.TabIndex = 33;
             this.lblraza.Text = "Raza Cerc:";
-            this.lblraza.Visible = false;
+            // 
+            // BtnDeseneazaCerc
+            // 
+            this.BtnDeseneazaCerc.Location = new System.Drawing.Point(130, 392);
+            this.BtnDeseneazaCerc.Name = "BtnDeseneazaCerc";
+            this.BtnDeseneazaCerc.Size = new System.Drawing.Size(134, 42);
+            this.BtnDeseneazaCerc.TabIndex = 35;
+            this.BtnDeseneazaCerc.Text = "Deseneaza Cerc";
+            this.BtnDeseneazaCerc.UseVisualStyleBackColor = true;
+            this.BtnDeseneazaCerc.Click += new System.EventHandler(this.BtnDeseneazaCerc_Click);
+            // 
+            // BtnClearPanel
+            // 
+            this.BtnClearPanel.Location = new System.Drawing.Point(130, 452);
+            this.BtnClearPanel.Name = "BtnClearPanel";
+            this.BtnClearPanel.Size = new System.Drawing.Size(134, 42);
+            this.BtnClearPanel.TabIndex = 36;
+            this.BtnClearPanel.Text = "Clear Panel";
+            this.BtnClearPanel.UseVisualStyleBackColor = true;
+            this.BtnClearPanel.Click += new System.EventHandler(this.BtnClearPanel_Click);
+            // 
+            // BtnClearPanelData
+            // 
+            this.BtnClearPanelData.Location = new System.Drawing.Point(16, 452);
+            this.BtnClearPanelData.Name = "BtnClearPanelData";
+            this.BtnClearPanelData.Size = new System.Drawing.Size(105, 42);
+            this.BtnClearPanelData.TabIndex = 37;
+            this.BtnClearPanelData.Text = "Clear Panel Data";
+            this.BtnClearPanelData.UseVisualStyleBackColor = true;
+            this.BtnClearPanelData.Click += new System.EventHandler(this.BtnClearPanelData_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(835, 450);
+            this.ClientSize = new System.Drawing.Size(835, 519);
+            this.Controls.Add(this.BtnClearPanelData);
+            this.Controls.Add(this.BtnClearPanel);
+            this.Controls.Add(this.BtnDeseneazaCerc);
             this.Controls.Add(this.txtraza);
             this.Controls.Add(this.lblraza);
             this.Controls.Add(this.lblCoord);
@@ -437,6 +472,9 @@
         private System.Windows.Forms.Label lblCoord;
         private System.Windows.Forms.TextBox txtraza;
         private System.Windows.Forms.Label lblraza;
+        private System.Windows.Forms.Button BtnDeseneazaCerc;
+        private System.Windows.Forms.Button BtnClearPanel;
+        private System.Windows.Forms.Button BtnClearPanelData;
     }
 }
 

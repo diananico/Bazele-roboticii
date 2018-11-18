@@ -108,27 +108,11 @@ namespace ExpandareObstacole
             Pen p = new Pen(Color.DarkRed, 10f);
             Font font = new Font("Comic", 7);
             String raza = (txtraza.Text == "") ? "0" : txtraza.Text;
-            float radius = float.Parse(raza);
+            float razaCerc = float.Parse(raza);
             float xoffset = 4.5f;
             float yoffset = 6f;
-
-
-            if (panelPoints == 1)
-            {//it's a circle
-                if (radius == 0)
-                {
-                    MessageBox.Show("Ati introdus un punct => cerc. \n Introduceti raza.");
-                    lblraza.Visible = true;
-                    txtraza.Visible = true;
-                }
-                else
-                {
-                    Compute.DrawCircle(g, blackpen, (float)listp[0].x + xoffset, (float)listp[0].y + yoffset, radius);                  
-                    lblraza.Visible = false;
-                    txtraza.Visible = false;
-                }
-            }
-            else if (panelPoints > 1)
+                                  
+            if (panelPoints > 2)
             {
                 IList<Point> actual = ConvexHull.MakeHull(listp);
                 IList<Point> expected = ConvexHullTest.MakeHullNaive(listp);
@@ -143,16 +127,19 @@ namespace ExpandareObstacole
                     
                     Brush br = new SolidBrush(System.Drawing.Color.DarkRed);
 
+                    //Deseneaza punctele din plan - printr'un x
                     for (int index = 0; index < nr; index++)
                     {
                         g.DrawString("X", font, br, (float)expected[index].x, (float)expected[index].y);
                     }
                     System.Threading.Thread.Sleep(7000);
 
+                    //Traseaza figura in urma punctelor calculate a fi valide - prin converHullAlgorithm
                     for (int index = 0; index < nr - 1; index++)
                     {
                         g.DrawLine(blackpen, (float)expected[index].x + xoffset, (float)expected[index].y + yoffset, (float)expected[index + 1].x + xoffset, (float)expected[index + 1].y + yoffset);
                     }
+                    //Traseaza ultima linie a figurii: uneste primul punct din lista cu ultimul
                     g.DrawLine(blackpen, (float)expected[nr - 1].x + xoffset, (float)expected[nr - 1].y + yoffset, (float)expected[0].x + xoffset, (float)expected[0].y + yoffset);
 
                 }
@@ -170,10 +157,10 @@ namespace ExpandareObstacole
             }
             else
             {
-                MessageBox.Show("Nu ati dat niciun punct.");
+                MessageBox.Show("Numarul minim de puncte este 3. \n Ati introdus " + panelPoints.ToString() + " puncte.");
             }
-            listp.Clear();
-            panelPoints = 0;
+            listp.Clear(); //initializare lista cu puncte din panel
+            panelPoints = 0; //initializare numar de puncte din panel
             g.Dispose();
         }
 
@@ -185,14 +172,63 @@ namespace ExpandareObstacole
             System.Drawing.Point point = panel1.PointToClient(Cursor.Position);
             g.DrawString("X", font, br, point.X, point.Y);
 
+            listp.Add(new Point(point.X, point.Y));//adauga punctele din panel in lista
 
-            //listp[listindex].x = point.X;
-            //listp[listindex].y = point.y;
-            listp.Add(new Point(point.X, point.Y));
+            lblCoord.Text = point.ToString(); //arata in label coordonatele fiecarui punct introdus.
 
-            lblCoord.Text = point.ToString();
+            panelPoints++; //incrementeaza numarul de puncte din panel
+        }
 
-            panelPoints++;
+        private void BtnDrawCircle(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnDeseneazaCerc_Click(object sender, EventArgs e)
+        {
+            if((txtraza.Text!="")&&(listp.Count==1))
+            {
+                Graphics g = panel1.CreateGraphics();
+                g.SmoothingMode = SmoothingMode.HighQuality;
+                Pen blackpen = new Pen(Color.Black, 3);
+                String raza = txtraza.Text;
+                float razaCerc = float.Parse(raza);
+                float xoffset = 4.5f;
+                float yoffset = 6f;
+
+                Compute.DrawCircle(g, blackpen, (float)listp[0].x + xoffset, (float)listp[0].y + yoffset, razaCerc);
+               
+                //razaCerc = 0; //reinitializare raza cerc
+            }
+            else if((txtraza.Text == "")&& (listp.Count != 1))
+            {
+                MessageBox.Show("Nu ati introdus raza cercului!\n Nu ati ales centrul cercului!");
+
+            }
+            else if((txtraza.Text == "") && (listp.Count == 1))
+            {
+                MessageBox.Show("Nu ati introdus raza cercului!");
+            }
+            else if((txtraza.Text != "") && (listp.Count != 1))
+            {
+                MessageBox.Show("Nu ati ales centrul cercului!");
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void BtnClearPanel_Click(object sender, EventArgs e)
+        {
+            panel1.Invalidate();
+        }
+
+        private void BtnClearPanelData_Click(object sender, EventArgs e)
+        {
+            panel1.Invalidate();
+            listp.Clear();
         }
     }
 }
