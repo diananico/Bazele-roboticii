@@ -8,3 +8,16 @@ F:\SCOALA\Facultate\An_4_Sem_1\BR\GitPROIECT\Proiect\ExpandareObstacole\Expandar
 F:\SCOALA\Facultate\An_4_Sem_1\BR\GitPROIECT\Proiect\ExpandareObstacole\ExpandareObstacole\obj\Debug\ExpandareObstacole.exe
 F:\SCOALA\Facultate\An_4_Sem_1\BR\GitPROIECT\Proiect\ExpandareObstacole\ExpandareObstacole\obj\Debug\ExpandareObstacole.pdb
 F:\SCOALA\Facultate\An_4_Sem_1\BR\GitPROIECT\Proiect\ExpandareObstacole\ExpandareObstacole\obj\Debug\ExpandareObstacole.csprojAssemblyReference.cache
+D:\BR\GitHub\ExpandareObstacole\ExpandareObstacole\obj\Debug\ExpandareObstacole.Form1.resources
+D:\BR\GitHub\ExpandareObstacole\ExpandareObstacole\obj\Debug\ExpandareObstacole.Properties.Resources.resources
+D:\BR\GitHub\ExpandareObstacole\ExpandareObstacole\obj\Debug\ExpandareObstacole.csproj.GenerateResource.cache
+D:\BR\GitHub\ExpandareObstacole\ExpandareObstacole\obj\Debug\ExpandareObstacole.csproj.CoreCompileInputs.cache
+D:\BR\GitHub\ExpandareObstacole\ExpandareObstacole\obj\Debug\ExpandareObstacole.exe
+D:\BR\GitHub\ExpandareObstacole\ExpandareObstacole\obj\Debug\ExpandareObstacole.pdb
+D:\BR\GitHub\ExpandareObstacole\ExpandareObstacole\bin\Debug\ExpandareObstacole.exe.config
+D:\BR\GitHub\ExpandareObstacole\ExpandareObstacole\bin\Debug\ExpandareObstacole.exe
+D:\BR\GitHub\ExpandareObstacole\ExpandareObstacole\bin\Debug\ExpandareObstacole.pdb
+D:\BR\GitHub\ExpandareObstacole\ExpandareObstacole\bin\Debug\nunit.framework.dll
+D:\BR\GitHub\ExpandareObstacole\ExpandareObstacole\bin\Debug\Vector2D.dll
+D:\BR\GitHub\ExpandareObstacole\ExpandareObstacole\bin\Debug\nunit.framework.xml
+D:\BR\GitHub\ExpandareObstacole\ExpandareObstacole\obj\Debug\ExpandareObstacole.csproj.CopyComplete

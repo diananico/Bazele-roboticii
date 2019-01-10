@@ -102,7 +102,23 @@ namespace ExpandareObstacole
 
         private void btnexpand_Click(object sender, EventArgs e)
         {
-            
+            //traseaza paralele
+            IList<Point> newP = new List<Point>();
+            newP = Parallel.GetEnlargedPolygon(listp, (float)Convert.ToUInt16(txtdist.Text), out Point close1);
+            Graphics g3 = panel1.CreateGraphics();
+            Point punct1;
+            Point punct2;
+            Pen p = new Pen(Color.Red,3);
+
+            int index = 2;
+            while (index < (panelPoints*4))
+            {
+                punct1 = Parallel.parallelP[index];
+                punct2 = Parallel.parallelP[index+1];
+                g3.DrawLine(p, (float)punct1.x, (float)punct1.y, (float)punct2.x, (float)punct2.y);
+                index += 4;
+            }
+           
         }
 
         private void panel1_Click(object sender, EventArgs e)
@@ -138,7 +154,7 @@ namespace ExpandareObstacole
                     Graphics g3 = panel1.CreateGraphics();
                     Point punct1 = listp[listp.Count()-2];
                     Point punct2 = listp.Last();
-                    Pen p = new Pen(Color.Black);
+                    Pen p = new Pen(Color.Black,2);
                     g3.DrawLine(p, Convert.ToSingle(punct1.x), Convert.ToSingle(punct1.y), Convert.ToSingle(punct2.x), Convert.ToSingle(punct2.y));
                 }
             }
@@ -267,6 +283,8 @@ namespace ExpandareObstacole
             if (txtnrpct.Text == "1")
                 MessageBox.Show("Alegeti centrul cercului si dati valoare razei!");
         }
+
+       
     }
 }
 
