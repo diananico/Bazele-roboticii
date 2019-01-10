@@ -102,21 +102,29 @@ namespace ExpandareObstacole
 
         private void btnexpand_Click(object sender, EventArgs e)
         {
-            //traseaza paralele
-            IList<Point> newP = new List<Point>();
-            newP = Parallel.GetEnlargedPolygon(listp, (float)Convert.ToUInt16(txtdist.Text), out Point close1);
-            Graphics g3 = panel1.CreateGraphics();
-            Point punct1;
-            Point punct2;
-            Pen p = new Pen(Color.Red,3);
 
-            int index = 2;
-            while (index < (panelPoints*4))
+            if ((txtdist.Text).Equals("") || (((txtdist1.Text).Equals(""))))
             {
-                punct1 = Parallel.parallelP[index];
-                punct2 = Parallel.parallelP[index+1];
-                g3.DrawLine(p, (float)punct1.x, (float)punct1.y, (float)punct2.x, (float)punct2.y);
-                index += 4;
+                MessageBox.Show("Nu ati introdus valoarea de Expandare!");
+            }
+            else if (!(txtdist.Text).Equals(""))
+            {   
+                //traseaza paralele
+                IList<Point> newP = new List<Point>();
+                newP = Parallel.GetEnlargedPolygon(listp, (float)Convert.ToUInt16(txtdist.Text), out Point close1);
+                Graphics g3 = panel1.CreateGraphics();
+                Point punct1;
+                Point punct2;
+                Pen p = new Pen(Color.Red, 3);
+
+                int index = 2;
+                while (index < (panelPoints * 4))
+                {
+                    punct1 = Parallel.parallelP[index];
+                    punct2 = Parallel.parallelP[index + 1];
+                    g3.DrawLine(p, (float)punct1.x, (float)punct1.y, (float)punct2.x, (float)punct2.y);
+                    index += 4;
+                }
             }
            
         }
@@ -284,7 +292,17 @@ namespace ExpandareObstacole
                 MessageBox.Show("Alegeti centrul cercului si dati valoare razei!");
         }
 
-       
+        private void comboforma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboforma.SelectedIndex==1)
+            {
+                combocapete.Visible = true;
+            }
+            else if(comboforma.SelectedIndex == 0)
+            {
+                combocapete.Visible = false;
+            }
+        }
     }
 }
 
